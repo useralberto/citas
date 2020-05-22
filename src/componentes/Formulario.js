@@ -12,12 +12,14 @@ const Formulario = () => {
     sintomas:''
   });
 
+  const [error, actualizarError] = useState(false);
+
   //funcion que se ejecuta cada que el usario escribe en un input
   const actualizarstate = event =>{
     actualizarCita({
       ...cita,
       [event.target.name]: event.target.value
-    })
+    });
   }
 
   //Extraer los valores
@@ -29,6 +31,12 @@ const Formulario = () => {
     event.preventDefault();
 
     //Validar 
+    if(mascota.trim() === '' || propietario.trim() === '' || fecha.trim() === '' || hora.trim() === '' || sintomas.trim() === ''){
+      actualizarError(true);
+      return
+    }else{
+      actualizarError(false);
+    }
 
     //Asignar un ID
 
@@ -40,6 +48,14 @@ const Formulario = () => {
   return (
     <Fragment>
       <h2>Crear Cita</h2>
+
+      {
+        error ?
+        <h1 className="alerta-error">Todos los campos son obligatorios</h1>
+        :null
+      }
+
+
       <form
         onSubmit={submitCita}
       >

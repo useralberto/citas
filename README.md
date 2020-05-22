@@ -1,1 +1,1 @@
-Mi prima app de citas.
+Mi primera app de citas en react js.
