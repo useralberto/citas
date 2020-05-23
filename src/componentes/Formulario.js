@@ -49,6 +49,14 @@ const Formulario = ({ crearCita }) => {
 
 
     //Reinicar el form
+    actualizarCita({
+      mascota: '',
+      propietario:'',
+      fecha:'',
+      hora:'',
+      sintomas:''
+    })
+
   }  
 
   return (
@@ -91,7 +99,7 @@ const Formulario = ({ crearCita }) => {
           onChange={actualizarstate}
           value={fecha}
         />
-        <label>Nombre Dueño</label>
+        <label>Hora</label>
         <input 
           type="time"
           name="hora"
